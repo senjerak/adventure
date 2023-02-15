@@ -1,0 +1,95 @@
+body{
+    overflow: hidden;
+    width: 100vw;
+    height: 100vh;
+    background-repeat: no-repeat;
+    display: flex;
+    flex-direction: column;
+    margin:0 auto;
+    padding:0;
+    background: linear-gradient(180deg, rgba(174,238,234,1) 0%, rgba(76,135,95,1) 46%, rgba(53,113,56,1) 85%);
+}
+
+main {
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+    max-height: 460px;
+    max-width: 500px;
+    margin: auto;
+    align-items: center;
+    justify-content: center;
+    border: 10px solid rgb(255, 243, 204);
+    border-radius: 10%;
+}
+
+.grass{
+    background: url(../media/avd_forground.png);
+    width: 100%;
+    height: 200px;
+    background-repeat: repeat-x;
+    background-position: bottom;
+    background-size:40%;
+    margin: 0 auto;
+}
+
+.scene{
+    display: flex;
+    width: 100%;
+    height: 60vh;
+    background: url(../media/adv_floor.png);
+    background-position: top center;
+    background-repeat: repeat;
+    padding: 0;
+    margin: 0 auto;
+}
+
+.controls{
+    background: rgb(49, 39, 27);
+    height: 200px;
+    width: 100%;
+    text-align: center;
+}
+
+.frogi{
+    margin:auto;
+}
+
+.option_hat{
+    background: url(../media/lily.png);
+    background-size: contain;
+    background-position: center;
+    height: 80px;
+    width: 80px;
+    border-style: none;
+}
+
+.option_hat:hover{
+    transition: transform ease-in;
+    transform: scale(110%);
+}
+
+@font-face {
+    font-family: PressStart;
+    src: url(../fonts/PressStart2P-Regular.ttf);
+}
+
+.text{
+    font-family: PressStart;
+    color:rgb(255, 243, 204);
+    padding: 10px;
+    margin: 0 0;
+}
+
+#redoBtn{
+    transform: scale(100%);
+}
+
+#redoBtn:hover{
+    transition: transform ease-in;
+    transform: scale(110%);
+}
+
+a{
+    font-style:none;
+}
