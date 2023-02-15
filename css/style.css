@@ -16,6 +16,7 @@ main {
     overflow: hidden;
     max-height: 460px;
     max-width: 500px;
+    min-width: 360px;
     margin: auto;
     align-items: center;
     justify-content: center;
@@ -49,13 +50,17 @@ main {
     height: 200px;
     width: 100%;
     text-align: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
 }
 
 .frogi{
     margin:auto;
 }
 
-.option_hat{
+.option {
+    cursor: pointer;
     background: url(../media/lily.png);
     background-size: contain;
     background-position: center;
@@ -64,7 +69,7 @@ main {
     border-style: none;
 }
 
-.option_hat:hover{
+.option:hover{
     transition: transform ease-in;
     transform: scale(110%);
 }
@@ -90,6 +95,6 @@ main {
     transform: scale(110%);
 }
 
-a{
-    font-style:none;
+a {
+    text-decoration: none;
 }

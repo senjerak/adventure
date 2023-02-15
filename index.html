@@ -23,21 +23,92 @@
         </div>
 
         <div class="controls">
-           <a href="hat/wizard_hat.html"><button class="option_hat" id="one"></button></a>
-           <a href="hat/chef_hat.html"><button class="option_hat" id="two"></button></a>
-            <a href="hat/monk_hat.html"><button class="option_hat" id="three"></button></a>
-            <a href="hat/bard_hat.html"><button class="option_hat" id="four"></button></a>
-            <a href="hat/null_hat.html"><button class="option_hat" id="five"></button></a> <br>
-
+            <div class="buttons"></div>
             <a href="index.html"><h3 class="text" id="redoBtn">REDO</h3></a>
-           
         </div>
     </main>
    
 
     <script>
+        const frogiPreview = document.querySelector('.frogi img');
+        const lilypads = document.querySelector('.controls .buttons')
+        const beans = {
+            hat: undefined,
+            wep: undefined,
+            cloth: undefined
+        };
+
         // media/beans_[HAT_ID]_[WEP_ID]_[CLOTH_ID].png
-        // media/hat/[HAT_ID]/weapon/[WEP_ID]/cloth/[CLOTH_ID].png
+        const hats = ["wizard", "chef", "monk", "bard", "null"];
+        const weps = ["staff", "spat", "chucks", "lute", "null"];
+        const cloths = [...hats]; // https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Spread_syntax
+        
+        function setupHats() {
+            for(const hat of hats) {
+                const button = document.createElement('button');
+                button.value = hat;
+                button.className = 'option';
+                button.addEventListener('mouseover', (event) => {
+                    frogiPreview.src = `/media/beans_hat_${hat}.png`
+                })
+                button.addEventListener('click', event => {
+                    beans.hat = hat
+                    setupWeps();
+                })
+                lilypads.appendChild(button)
+            }
+        }
+
+        function setupWeps() {
+            lilypads.replaceChildren();
+            for(const wep of weps) {
+                const button = document.createElement('button');
+                button.value = wep;
+                button.className = 'option';
+                button.addEventListener('mouseover', (event) => {
+                    if (wep == "null") {
+                        frogiPreview.src = `/media/beans_hat_${beans.hat}.png`  
+                    } else {
+                        frogiPreview.src = `/media/grande/beans_${beans.hat}_${wep}.png`
+                    }
+                })
+
+                button.addEventListener('click', event => {
+                    beans.wep = wep
+                    setupCloths();
+                })
+
+                lilypads.appendChild(button)
+            }   
+        }
+
+        function setupCloths() {
+            lilypads.replaceChildren();
+            for(const cloth of cloths) {
+                const button = document.createElement('button');
+                button.value = cloth;
+                button.className = 'option';
+                button.addEventListener('mouseover', (event) => {
+                    if (cloth == "null" && beans.wep == "null") {
+                        frogiPreview.src = `/media/beans_hat_${beans.hat}.png`
+                    } else if (cloth == "null") {
+                        frogiPreview.src = `/media/grande/beans_${beans.hat}_${beans.wep}.png`
+                    } else {
+                        frogiPreview.src = `/media/venti/beans_${beans.hat}_${beans.wep}_${cloth}.png`
+                    }
+                })
+
+                button.addEventListener('click', event => {
+                    beans.cloth = cloth
+                    lilypads.replaceChildren();
+                })
+
+                lilypads.appendChild(button)
+            }   
+        }
+
+        setupHats();
+
     </script>
 </body>
 </html>
