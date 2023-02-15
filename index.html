@@ -6,8 +6,8 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Kero Kero!</title>
-    <link rel="stylesheet" href="css/style.css">
-    <link rel="icon" type="image/x-icon" href="media/frog_favicon.png">
+    <link rel="stylesheet" href="./css/style.css">
+    <link rel="icon" type="image/x-icon" href="./media/frog_favicon.png">
 </head>
 
 <body>
@@ -17,7 +17,7 @@
 
         <div class="scene">
             <div class="frogi">
-                <img src="/media/beans_hat_null.png">
+                <img src="./media/beans_hat_null.png">
             </div>
             <div class="selection"></div>
         </div>
@@ -49,7 +49,7 @@
                 button.value = hat;
                 button.className = 'option';
                 button.addEventListener('mouseover', (event) => {
-                    frogiPreview.src = `/media/beans_hat_${hat}.png`
+                    frogiPreview.src = `./media/beans_hat_${hat}.png`
                 })
                 button.addEventListener('click', event => {
                     beans.hat = hat
@@ -67,9 +67,9 @@
                 button.className = 'option';
                 button.addEventListener('mouseover', (event) => {
                     if (wep == "null") {
-                        frogiPreview.src = `/media/beans_hat_${beans.hat}.png`  
+                        frogiPreview.src = `./media/beans_hat_${beans.hat}.png`  
                     } else {
-                        frogiPreview.src = `/media/grande/beans_${beans.hat}_${wep}.png`
+                        frogiPreview.src = `./media/grande/beans_${beans.hat}_${wep}.png`
                     }
                 })
 
@@ -90,11 +90,11 @@
                 button.className = 'option';
                 button.addEventListener('mouseover', (event) => {
                     if (cloth == "null" && beans.wep == "null") {
-                        frogiPreview.src = `/media/beans_hat_${beans.hat}.png`
+                        frogiPreview.src = `./media/beans_hat_${beans.hat}.png`
                     } else if (cloth == "null") {
-                        frogiPreview.src = `/media/grande/beans_${beans.hat}_${beans.wep}.png`
+                        frogiPreview.src = `./media/grande/beans_${beans.hat}_${beans.wep}.png`
                     } else {
-                        frogiPreview.src = `/media/venti/beans_${beans.hat}_${beans.wep}_${cloth}.png`
+                        frogiPreview.src = `./media/venti/beans_${beans.hat}_${beans.wep}_${cloth}.png`
                     }
                 })
 
