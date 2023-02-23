@@ -11,7 +11,7 @@
 </head>
 
 <body>
- 
+
     <main>
         <div class="grass"></div>
 
@@ -23,11 +23,15 @@
         </div>
 
         <div class="controls">
+            <div class="leText">
+            </div>
             <div class="buttons"></div>
-            <a href="index.html"><h3 class="text" id="redoBtn">REDO</h3></a>
+            <a href="index.html">
+                <h3 class="text" id="redoBtn">REDO</h3>
+            </a>
         </div>
     </main>
-   
+
 
     <script>
         const frogiPreview = document.querySelector('.frogi img');
@@ -42,9 +46,9 @@
         const hats = ["wizard", "chef", "monk", "bard", "null"];
         const weps = ["staff", "spat", "chucks", "lute", "null"];
         const cloths = [...hats]; // https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Spread_syntax
-        
+
         function setupHats() {
-            for(const hat of hats) {
+            for (const hat of hats) {
                 const button = document.createElement('button');
                 button.value = hat;
                 button.className = 'option';
@@ -61,13 +65,13 @@
 
         function setupWeps() {
             lilypads.replaceChildren();
-            for(const wep of weps) {
+            for (const wep of weps) {
                 const button = document.createElement('button');
                 button.value = wep;
                 button.className = 'option';
                 button.addEventListener('mouseover', (event) => {
                     if (wep == "null") {
-                        frogiPreview.src = `media/beans_hat_${beans.hat}.png`  
+                        frogiPreview.src = `media/beans_hat_${beans.hat}.png`
                     } else {
                         frogiPreview.src = `media/grande/beans_${beans.hat}_${wep}.png`
                     }
@@ -79,12 +83,12 @@
                 })
 
                 lilypads.appendChild(button)
-            }   
+            }
         }
 
         function setupCloths() {
             lilypads.replaceChildren();
-            for(const cloth of cloths) {
+            for (const cloth of cloths) {
                 const button = document.createElement('button');
                 button.value = cloth;
                 button.className = 'option';
@@ -97,18 +101,20 @@
                         frogiPreview.src = `media/venti/beans_${beans.hat}_${beans.wep}_${cloth}.png`
                     }
                 })
-
                 button.addEventListener('click', event => {
                     beans.cloth = cloth
-                    lilypads.replaceChildren();
+                    const message = document.createElement('h3');
+                    message.innerText = "You're All Ready!"
+                    lilypads.replaceChildren(message)
                 })
 
                 lilypads.appendChild(button)
-            }   
+            }
         }
 
         setupHats();
 
     </script>
 </body>
+
 </html>
